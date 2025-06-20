@@ -5,16 +5,20 @@
 To use the Recipe Details page, you need to set up your Spoonacular API key:
 
 1. **Get an API Key:**
+
    - Visit [Spoonacular API](https://spoonacular.com/food-api)
    - Sign up for a free account
    - Get your API key from the dashboard
 
 2. **Configure Environment Variables:**
+
    - Create a `.env.local` file in the root directory of your project
    - Add the following line:
+
    ```
    NEXT_PUBLIC_SPOONACULAR_API_KEY=your_actual_api_key_here
    ```
+
    - Replace `your_actual_api_key_here` with your real API key
 
 3. **Restart the Development Server:**
@@ -35,10 +39,11 @@ The Recipe Details page now includes:
 ## Error Handling
 
 The page includes proper error handling for:
+
 - Missing API key
 - Failed API requests
 - Invalid recipe IDs
 
 ## Caching
 
-Recipe data is cached for 1 hour to improve performance and reduce API calls. 
+Recipe data is cached for 1 hour to improve performance and reduce API calls.

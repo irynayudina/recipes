@@ -5,18 +5,21 @@ A modern, responsive web application for discovering and exploring recipes from 
 ## 🍳 Features
 
 ### Core Functionality
+
 - **Recipe Search**: Search for recipes by ingredients, cuisine type, diet preferences, and meal type
 - **Recipe Details**: View comprehensive recipe information including ingredients, instructions, and nutritional data
 - **Responsive Design**: Optimized for desktop, tablet, and mobile devices
 - **Real-time Search**: Instant search results with loading states and error handling
 
 ### User Experience
+
 - **Modern UI**: Clean, intuitive interface with smooth animations
 - **Loading States**: Skeleton loaders and progress indicators
 - **Error Handling**: Graceful error handling with user-friendly messages
 - **Caching**: Intelligent caching to improve performance and reduce API calls
 
 ### Technical Features
+
 - **TypeScript**: Full type safety throughout the application
 - **ESLint & Prettier**: Code quality and formatting standards
 - **Tailwind CSS**: Utility-first CSS framework for consistent styling
@@ -25,18 +28,21 @@ A modern, responsive web application for discovering and exploring recipes from 
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - Node.js 18.17 or later
 - npm, yarn, pnpm, or bun package manager
 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd test-task
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    # or
@@ -48,13 +54,15 @@ A modern, responsive web application for discovering and exploring recipes from 
    ```
 
 3. **Set up environment variables**
-   
+
    Edit `.env.local` and add your Spoonacular API key:
+
    ```
    NEXT_PUBLIC_SPOONACULAR_API_KEY=your_api_key_here
    ```
 
 4. **Start the development server**
+
    ```bash
    npm run dev
    # or
@@ -124,12 +132,14 @@ This application integrates with the [Spoonacular API](https://spoonacular.com/f
 ### API Setup
 
 1. **Get an API Key**:
+
    - Visit [Spoonacular API](https://spoonacular.com/food-api)
    - Sign up for a free account
    - Get your API key from the dashboard
 
 2. **Configure Environment Variables**:
    Create a `.env.local` file in the root directory:
+
    ```
    NEXT_PUBLIC_SPOONACULAR_API_KEY=your_actual_api_key_here
    ```
@@ -158,6 +168,7 @@ This project uses **Tailwind CSS** for styling:
 ## 📱 Responsive Design
 
 The application is fully responsive and optimized for:
+
 - **Desktop**: Full-featured experience with hover effects
 - **Tablet**: Touch-friendly interface with appropriate spacing
 - **Mobile**: Optimized layouts and touch interactions
@@ -174,6 +185,7 @@ The application is fully responsive and optimized for:
 ### Other Platforms
 
 The application can be deployed to any platform that supports Next.js:
+
 - Netlify
 - Railway
 - DigitalOcean App Platform

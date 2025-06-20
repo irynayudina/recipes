@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
@@ -44,13 +45,14 @@ export default function SearchForm() {
   const [cuisine, setCuisine] = useState('');
   const [prepTime, setPrepTime] = useState('');
 
-  const isFormValid = query.trim() !== '' || cuisine !== '' || prepTime.trim() !== '';
+  const isFormValid =
+    query.trim() !== '' || cuisine !== '' || prepTime.trim() !== '';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const params = new URLSearchParams();
-    
+
     if (query.trim()) {
       params.append('query', query.trim());
     }
@@ -66,32 +68,28 @@ export default function SearchForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 p-4">
+    <form onSubmit={handleSubmit} className='space-y-6 p-4'>
       {/* Recipe Query Input */}
-      <div className="space-y-1">
-        <Label htmlFor="query">
-          What would you like to cook?
-        </Label>
+      <div className='space-y-1'>
+        <Label htmlFor='query'>What would you like to cook?</Label>
         <Input
-          type="text"
-          id="query"
+          type='text'
+          id='query'
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="e.g., pasta, chicken, salad..."
+          onChange={e => setQuery(e.target.value)}
+          placeholder='e.g., pasta, chicken, salad...'
         />
       </div>
 
       {/* Cuisine Dropdown */}
-      <div className="space-y-1">
-        <Label htmlFor="cuisine">
-          Cuisine Type
-        </Label>
+      <div className='space-y-1'>
+        <Label htmlFor='cuisine'>Cuisine Type</Label>
         <Select
-          id="cuisine"
+          id='cuisine'
           value={cuisine}
-          onChange={(e) => setCuisine(e.target.value)}
+          onChange={e => setCuisine(e.target.value)}
         >
-          {cuisines.map((cuisineOption) => (
+          {cuisines.map(cuisineOption => (
             <option key={cuisineOption.value} value={cuisineOption.value}>
               {cuisineOption.label}
             </option>
@@ -100,30 +98,28 @@ export default function SearchForm() {
       </div>
 
       {/* Preparation Time Input */}
-      <div className="space-y-1">
-        <Label htmlFor="prepTime">
-          Maximum Preparation Time (minutes)
-        </Label>
+      <div className='space-y-1'>
+        <Label htmlFor='prepTime'>Maximum Preparation Time (minutes)</Label>
         <Input
-          type="number"
-          id="prepTime"
+          type='number'
+          id='prepTime'
           value={prepTime}
-          onChange={(e) => setPrepTime(e.target.value)}
-          placeholder="e.g., 30"
-          min="1"
-          max="300"
+          onChange={e => setPrepTime(e.target.value)}
+          placeholder='e.g., 30'
+          min='1'
+          max='300'
         />
       </div>
 
       {/* Submit Button */}
       <Button
-        type="submit"
+        type='submit'
         disabled={!isFormValid}
-        className="w-full"
-        variant={isFormValid ? "default" : "secondary"}
+        className='w-full'
+        variant={isFormValid ? 'default' : 'secondary'}
       >
         Find Recipes
       </Button>
     </form>
   );
-} 
+}

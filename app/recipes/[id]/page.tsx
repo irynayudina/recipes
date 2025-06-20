@@ -1,19 +1,21 @@
 import { Suspense } from 'react';
-import RecipeDetailLoading from './loading';
-import RecipeImage from '../../components/RecipeImage';
-import RecipeContent from '../../components/RecipeContent';
+
 import BackButton from '../../components/BackButton';
+import RecipeContent from '../../components/RecipeContent';
+import RecipeImage from '../../components/RecipeImage';
 import { Recipe } from '../../types/recipe';
 
+import RecipeDetailLoading from './loading';
+
 interface PageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 async function getRecipeDetails(id: string): Promise<Recipe | null> {
   const apiKey = process.env.NEXT_PUBLIC_SPOONACULAR_API_KEY;
-  
+
   if (!apiKey || apiKey === 'your_api_key_here') {
     console.warn('Please set your Spoonacular API key in .env.local file');
     return null;
@@ -37,19 +39,19 @@ async function getRecipeDetails(id: string): Promise<Recipe | null> {
 }
 
 export default async function RecipePage({ params }: PageProps) {
-  const recipe = await getRecipeDetails(params.id);
+  const { id } = await params;
+  const recipe = await getRecipeDetails(id);
 
   if (!recipe) {
     return (
-      <div className="min-h-screen bg-gray-50 py-8">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="bg-white rounded-lg shadow-md p-8">
-            <h1 className="text-2xl font-bold text-gray-900 mb-4">Recipe Not Found</h1>
-            <p className="text-gray-600">
-              {process.env.NEXT_PUBLIC_SPOONACULAR_API_KEY === 'your_api_key_here' 
-                ? 'Please set your Spoonacular API key in the .env.local file to view recipe details.'
-                : 'Unable to load recipe details. Please try again later.'
-              }
+      <div className='min-h-screen bg-gray-50 py-8'>
+        <div className='max-w-4xl mx-auto px-4'>
+          <div className='bg-white rounded-lg shadow-md p-8'>
+            <h1 className='text-2xl font-bold text-gray-900 mb-4'>
+              Recipe Not Found
+            </h1>
+            <p className='text-gray-600'>
+              {'Unable to load recipe details. Please try again later.'}
             </p>
           </div>
         </div>
@@ -58,19 +60,17 @@ export default async function RecipePage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-4xl mx-auto px-4">
+    <div className='min-h-screen bg-gray-50 py-8'>
+      <div className='max-w-4xl mx-auto px-4'>
         {/* Back Button */}
-        <div className="mb-6">
-          <BackButton fallbackHref="/recipes">
-            Back to Results
-          </BackButton>
+        <div className='mb-6'>
+          <BackButton fallbackHref='/recipes'>Back to Results</BackButton>
         </div>
-        
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
+
+        <div className='bg-white rounded-lg shadow-md overflow-hidden'>
           <Suspense fallback={<RecipeDetailLoading />}>
             {/* Recipe Header */}
-            <div className="relative">
+            <div className='relative'>
               <RecipeImage recipe={recipe} />
               <RecipeContent recipe={recipe} />
             </div>
