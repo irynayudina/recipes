@@ -1,5 +1,7 @@
 # Recipe Finder
 
+https://recipes-eosin-sigma.vercel.app/
+
 A modern, responsive web application for discovering and exploring recipes from around the world. Built with Next.js 15, React 19, TypeScript, and Tailwind CSS.
 
 ## 🍳 Features
