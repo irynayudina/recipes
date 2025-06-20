@@ -164,20 +164,7 @@ The application is fully responsive and optimized for:
 
 ## 🚀 Deployment
 
-### GitHub Actions + Vercel (Recommended)
-
-For automated deployment with GitHub Actions:
-
-1. **Set up GitHub Actions**: Follow the [GitHub Actions Setup Guide](GITHUB_ACTIONS_SETUP.md)
-2. **Configure GitHub Secrets**: Add required Vercel and API credentials
-3. **Push to main branch**: Automatic deployment will trigger
-4. **Monitor deployment**: Check the Actions tab in your GitHub repository
-
-**Quick Setup Scripts**:
-- **Linux/macOS**: Run `./scripts/setup-vercel.sh`
-- **Windows**: Run `.\scripts\setup-vercel.ps1`
-
-### Manual Vercel Deployment
+### Vercel (Recommended)
 
 1. **Push to GitHub**: Ensure your code is in a GitHub repository
 2. **Connect to Vercel**: Import your repository in Vercel
